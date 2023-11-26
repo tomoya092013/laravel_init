@@ -10,7 +10,12 @@ class TestController extends Controller
     public function index()
     {
         $values = Test::all();
-        // dd($values);
+        $count = Test::count();
+        $first = Test::first();
+        $wherebbb = Test::where('text', '=', 'bbb')->get();
+
+        dd($values, $count, $first, $wherebbb);
+
         return view('tests.index', compact('values'));
     }
 }
